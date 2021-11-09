@@ -1,0 +1,6 @@
+/Users/tension/Documents/Develop/happyelements/packages/ILRFramework/Assets/StreamingAssets/HotFix.dll
+/Users/tension/Documents/Develop/happyelements/packages/ILRFramework/Assets/StreamingAssets/HotFix.pdb
+/Users/tension/Documents/Develop/happyelements/packages/ILRFramework/HotFix/obj/Debug iOS/HotFix.csprojAssemblyReference.cache
+/Users/tension/Documents/Develop/happyelements/packages/ILRFramework/HotFix/obj/Debug iOS/HotFix.csproj.CoreCompileInputs.cache
+/Users/tension/Documents/Develop/happyelements/packages/ILRFramework/HotFix/obj/Debug iOS/HotFix.dll
+/Users/tension/Documents/Develop/happyelements/packages/ILRFramework/HotFix/obj/Debug iOS/HotFix.pdb

@@ -1,0 +1,13 @@
+{
+  "name": "com.ilrframework",
+  "version": "0.1.1",
+  "displayName": "ILRFramework",
+  "description": "A ILRuntime-based Framework",
+  "unity": "2020.3",
+  "dependencies": {
+    "com.unity.addressables": "1.19.9",
+    "com.aaframework": "https://github.com/zlot1/AAFramework.git#0.1.5",
+    "com.sirenix.odin": "https://github.com/zlot1/Odin.git#3.0.2",
+    "com.ourpalm.ilruntime": "2.0.0-preview.13"
+  }
+}

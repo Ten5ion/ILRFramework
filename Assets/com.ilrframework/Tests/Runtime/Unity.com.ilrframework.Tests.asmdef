@@ -1,0 +1,17 @@
+{
+    "name": "Unity.com.ilrframework.Tests",
+    "rootNamespace": "",
+    "references": [
+        "GUID:c7bfd65d9cd8640c7ac825f50c1f117d",
+        "GUID:c216de62a73c04fd19b61069f4a38401"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
