@@ -35,10 +35,10 @@ namespace HotFix.Framework.ILRuntime.Core
             // await M3ConfigHelper.Instance.LoadConfigsAsync();
             //
             // FirstLoadingPanel.SetProgress(0.98f);
-            //
-            // // 加载第一个场景
-            // Debug.Log($"Load first scene '{firstScene}'");
-            //
+            
+            // 加载第一个场景
+            Debug.Log($"Load first scene '{firstScene}'");
+            
             // await SceneManager.Instance.LoadScene(firstScene);
             //
             // FirstLoadingPanel.SetProgress(1f);

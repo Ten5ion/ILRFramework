@@ -64,3 +64,19 @@ crashlytics-build.properties
 # vscode
 **/.vscode
 .vsconfig
+
+[Aa]ssets/Scripts/Framework/ILRuntime/Bindings/CLRBindings/*
+![Aa]ssets/Scripts/Framework/ILRuntime/Bindings/CLRBindings/.gitkeep
+
+# ILRuntime Hotfix Project
+!/HotFix/*.sln
+!/HotFix/*.csproj
+/HotFix/obj
+/HotFix/packages
+!/HotFix/HotFixShare/*.csproj
+/HotFix/HotFixShare/obj
+/HotFix/HotFixShare/packages
+/[Aa]ssets/[Ss]treamingAssets/HotFix.dll
+/[Aa]ssets/[Ss]treamingAssets/HotFix.dll.meta
+/[Aa]ssets/[Ss]treamingAssets/HotFix.pdb
+/[Aa]ssets/[Ss]treamingAssets/HotFix.pdb.meta

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotFix", "HotFix.csproj", "{F6F32EB1-2463-48D6-AFA6-BBDB9AB4B75A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug iOS|Any CPU = Debug iOS|Any CPU
+		Debug Android|Any CPU = Debug Android|Any CPU
+		Release Android|Any CPU = Release Android|Any CPU
+		Release iOS|Any CPU = Release iOS|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F6F32EB1-2463-48D6-AFA6-BBDB9AB4B75A}.Release Android|Any CPU.ActiveCfg = Release Android|Any CPU
+		{F6F32EB1-2463-48D6-AFA6-BBDB9AB4B75A}.Release Android|Any CPU.Build.0 = Release Android|Any CPU
+		{F6F32EB1-2463-48D6-AFA6-BBDB9AB4B75A}.Debug iOS|Any CPU.ActiveCfg = Debug iOS|Any CPU
+		{F6F32EB1-2463-48D6-AFA6-BBDB9AB4B75A}.Debug iOS|Any CPU.Build.0 = Debug iOS|Any CPU
+		{F6F32EB1-2463-48D6-AFA6-BBDB9AB4B75A}.Debug iOS|Any CPU.Deploy.0 = Debug iOS|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C64D6C5A-E180-4FA8-87E6-DF9B85044A2B}
+	EndGlobalSection
+EndGlobal
