@@ -3,7 +3,6 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using com.aaframework.Runtime;
-using com.ilrframework.Runtime.Bindings.CLRBindings;
 using ILRuntime.Mono.Cecil.Pdb;
 using UnityEngine;
 using AppDomain = ILRuntime.Runtime.Enviorment.AppDomain;
@@ -114,7 +113,7 @@ namespace com.ilrframework.Runtime
         }
 
         public void Dispose() {
-            CLRBindings.Shutdown(Domain);
+            ILRRegister.ShutdownCLRBindings(Domain);
             
             if (_dllStream != null) _dllStream.Close();
             if (_pdbStream != null) _pdbStream.Close();
@@ -179,7 +178,7 @@ namespace com.ilrframework.Runtime
 //             return data;
 
 #if UNITY_EDITOR
-            var asset = await AAManager.Instance.LoadAssetAsync<TextAsset>(path);
+            var asset = AAManager.Instance.LoadAssetSync<TextAsset>(path);
 #else
             var asset = await AAManager.Instance.LoadAssetAsync<TextAsset>(path);
 #endif

@@ -32,5 +32,28 @@ namespace com.ilrframework.Runtime
         /// </summary>
         /// <returns></returns>
         public abstract Task OnStartLoading();
+
+        /// <summary>
+        /// 注册跨域继承适配器
+        /// </summary>
+        /// <param name="appDomain"></param>
+        public abstract void RegisterCrossBindingAdaptors(ILRuntime.Runtime.Enviorment.AppDomain appDomain);
+
+        /// <summary>
+        /// Delegate 的注册
+        /// </summary>
+        /// <param name="appDomain"></param>
+        public abstract void RegisterDelegates(ILRuntime.Runtime.Enviorment.AppDomain appDomain);
+
+        /// <summary>
+        /// 绑定值类型
+        /// </summary>
+        /// <param name="appDomain"></param>
+        public abstract void BindValueTypes(ILRuntime.Runtime.Enviorment.AppDomain appDomain);
+
+        /// <summary>
+        /// CLR 重定向
+        /// </summary>
+        public abstract void RegisterCLRRedirection(ILRuntime.Runtime.Enviorment.AppDomain appDomain);
     }
 }

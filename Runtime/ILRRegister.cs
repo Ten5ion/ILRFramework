@@ -1,5 +1,4 @@
 using System;
-using com.ilrframework.Runtime.Bindings.CLRBindings;
 using com.ilrframework.Runtime.CLRRedirection;
 using com.ilrframework.Runtime.Adaptor;
 using ILRuntime.Runtime.Intepreter;
@@ -36,6 +35,8 @@ namespace com.ilrframework.Runtime
         /// <param name="appDomain"></param>
         public static void RegisterCrossBindingAdaptors(AppDomain appDomain) {
             appDomain.RegisterCrossBindingAdaptor(new IAsyncStateMachineAdapter());
+            
+            ILRApp.Instance.Configurator.RegisterCrossBindingAdaptors(appDomain);
         }
 
         /// <summary>
@@ -43,6 +44,8 @@ namespace com.ilrframework.Runtime
         /// </summary>
         /// <param name="appDomain"></param>
         private static void RegisterDelegates(AppDomain appDomain) {
+            ILRApp.Instance.Configurator.RegisterDelegates(appDomain);
+                
             var delegateManager = appDomain.DelegateManager;
                 
             // 如果忘记注册，则在运行 Unity 的时候会报错：
@@ -147,6 +150,8 @@ namespace com.ilrframework.Runtime
         /// </summary>
         /// <param name="appDomain"></param>
         private static void BindValueTypes(AppDomain appDomain) {
+            ILRApp.Instance.Configurator.BindValueTypes(appDomain);
+            
             appDomain.RegisterValueTypeBinder(typeof(Vector3), new Vector3Binder());
             appDomain.RegisterValueTypeBinder(typeof(Quaternion), new QuaternionBinder());
             appDomain.RegisterValueTypeBinder(typeof(Vector2), new Vector2Binder());
@@ -166,6 +171,8 @@ namespace com.ilrframework.Runtime
         /// 所以想要实现自己的重定向时一定要先在这里注册，后面半自动生成的 CLR 绑定也不会覆盖掉
         /// </summary>
         private static unsafe void RegisterCLRRedirection(AppDomain appDomain) {
+            ILRApp.Instance.Configurator.RegisterCLRRedirection(appDomain);
+            
             // Debug.Log 的重定向
             CLRRedirectionDebug.Register(appDomain);
             // Component 的重定向
@@ -179,7 +186,33 @@ namespace com.ilrframework.Runtime
         /// </summary>
         /// <param name="appDomain"></param>
         private static void CLRBinding(AppDomain appDomain) {
-            CLRBindings.Initialize(appDomain);
+            // CLRBindings.Initialize(appDomain);
+            
+            var assemblies = System.AppDomain.CurrentDomain.GetAssemblies();
+            foreach (var assembly in assemblies) {
+                foreach (var type in assembly.GetTypes()) {
+                    if (type.FullName == "ILRuntime.Runtime.Generated.CLRBindings") {
+                        type.InvokeMember("Initialize",
+                            System.Reflection.BindingFlags.InvokeMethod | System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public, null, null,
+                            new object[] { appDomain });
+                        return;
+                    }
+                }
+            }
+        }
+
+        public static void ShutdownCLRBindings(AppDomain appDomain) {
+            var assemblies = System.AppDomain.CurrentDomain.GetAssemblies();
+            foreach (var assembly in assemblies) {
+                foreach (var type in assembly.GetTypes()) {
+                    if (type.FullName == "ILRuntime.Runtime.Generated.CLRBindings") {
+                        type.InvokeMember("Shutdown",
+                            System.Reflection.BindingFlags.InvokeMethod | System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public, null, null,
+                            new object[] { appDomain });
+                        return;
+                    }
+                }
+            }
         }
     }
 }
